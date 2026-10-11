@@ -24,6 +24,9 @@
     main { padding-block:44px 64px; min-height:calc(100vh - 185px); }
     h1 { margin:0 0 24px; font-size:clamp(28px,4vw,40px); line-height:1.2; letter-spacing:-.03em; }
     p { max-width:72ch; }
+    .release-links { display:flex; align-items:center; flex-wrap:wrap; gap:16px; margin-top:28px; }
+    .download { display:inline-block; padding:12px 20px; border-radius:6px; background:var(--accent); color:var(--bg); font-weight:700; text-decoration:none; }
+    .download:hover { text-decoration:underline; }
     .table-scroll { overflow-x:auto; }
     table { width:100%; border-collapse:collapse; background:var(--panel); font-size:14px; }
     th,td { padding:16px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
@@ -40,7 +43,7 @@
     .skip:focus { top:12px; }
     @media (max-width:640px) {
       .wrap { width:calc(100% - 32px); }
-      header .wrap { min-height:100px; gap:16px; }
+      header .wrap { min-height:100px; flex-direction:column; align-items:flex-start; gap:12px; padding-block:18px; }
       nav { gap:16px; font-size:13px; }
       main { padding-top:32px; }
       table { min-width:700px; }
@@ -57,6 +60,7 @@
     <div class="wrap">
       <a class="brand" href="{{ '/' | relative_url }}">GIZMU<span>Gizmondo emulator</span></a>
       <nav aria-label="Main navigation">
+        <a href="{{ site.release.download_url }}" aria-label="Download Gizmu {{ site.release.version }} for {{ site.release.platform }}">Download</a>
         <a href="{{ '/compatibility.html' | relative_url }}"{% if page.title == 'Compatibility' %} aria-current="page"{% endif %}>Compatibility</a>
         <a href="{{ '/LICENSE' | relative_url }}">License</a>
       </nav>
@@ -66,7 +70,13 @@
     {% if page.title == 'Compatibility' %}
     <h1>Compatibility</h1>
     <div class="table-scroll" role="region" aria-label="Game compatibility table" tabindex="0">{{ content }}</div>
-    {% else %}{{ content }}{% endif %}
+    {% else %}
+    {{ content }}
+    <p class="release-links">
+      <a class="download" href="{{ site.release.download_url }}">Download {{ site.release.version }} · {{ site.release.platform }}</a>
+      <a href="{{ site.release.url }}">Release notes &amp; checksums</a>
+    </p>
+    {% endif %}
   </main>
   <footer><div class="wrap"><span>Gizmu · Gizmondo emulator</span><a href="{{ '/LICENSE' | relative_url }}">EUPL 1.2</a></div></footer>
 </body>

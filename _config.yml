@@ -3,6 +3,11 @@ description: Gizmondo emulator — game compatibility
 lang: en
 url: https://mrpostiga.github.io
 baseurl: /gizmu
+release:
+  version: "1.0"
+  platform: Windows x64
+  url: https://github.com/mrpostiga/gizmu/releases/tag/v1.0.0
+  download_url: https://github.com/mrpostiga/gizmu/releases/download/v1.0.0/gizmu-1.0-windows-x64.zip
 markdown: kramdown
 kramdown:
   input: GFM
