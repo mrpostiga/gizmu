@@ -8,3 +8,6 @@ Gizmu was built from scratch. It is not affiliated with PocketHLE in any way
 and does not use PocketHLE source code.
 
 See the [compatibility report](compatibility.md) for tested games and known issues.
+
+
+Please read the license carefully before posting issues.
