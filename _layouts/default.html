@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description | escape }}">
+  <meta name="color-scheme" content="light dark">
+  <title>{% if page.title and page.title != site.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+  <style>
+    :root { color-scheme: light dark; --bg:#f8fafb; --panel:#fff; --text:#192b35; --muted:#536771; --line:#dce4e8; --accent:#087d73; --hover:#f1f7f6; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:var(--accent); text-underline-offset:3px; }
+    a:hover { text-decoration-thickness:2px; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:4px; border-radius:2px; }
+    .wrap { width:min(1160px,calc(100% - 48px)); margin-inline:auto; }
+    header { border-bottom:1px solid var(--line); background:var(--panel); }
+    header .wrap { min-height:88px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:var(--text); text-decoration:none; font-size:25px; font-weight:800; letter-spacing:.06em; }
+    .brand span { display:block; color:var(--muted); font-size:11px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; }
+    nav { display:flex; gap:24px; font-size:14px; font-weight:600; }
+    nav a { text-decoration:none; }
+    nav a[aria-current="page"] { text-decoration:underline; }
+    main { padding-block:44px 64px; min-height:calc(100vh - 185px); }
+    h1 { margin:0 0 24px; font-size:clamp(28px,4vw,40px); line-height:1.2; letter-spacing:-.03em; }
+    p { max-width:72ch; }
+    .table-scroll { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; background:var(--panel); font-size:14px; }
+    th,td { padding:16px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+    th { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.07em; background:var(--bg); }
+    th:first-child { width:27%; }
+    th:nth-child(2) { width:17%; }
+    th:last-child { width:15%; }
+    td:first-child,td:nth-child(2) { font-weight:600; }
+    tbody tr:hover { background:var(--hover); }
+    td a { display:inline-block; padding-block:2px; }
+    footer { padding-block:24px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    footer .wrap { display:flex; justify-content:space-between; gap:20px; }
+    .skip { position:absolute; left:16px; top:-80px; padding:12px; background:var(--panel); z-index:1; }
+    .skip:focus { top:12px; }
+    @media (max-width:640px) {
+      .wrap { width:calc(100% - 32px); }
+      header .wrap { min-height:100px; gap:16px; }
+      nav { gap:16px; font-size:13px; }
+      main { padding-top:32px; }
+      table { min-width:700px; }
+      th,td { padding:12px; }
+    }
+    @media (prefers-color-scheme:dark) {
+      :root { --bg:#11191e; --panel:#18242b; --text:#e0ebef; --muted:#a6bac3; --line:#2a3c46; --accent:#68d5c6; --hover:#1e3036; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">GIZMU<span>Gizmondo emulator</span></a>
+      <nav aria-label="Main navigation">
+        <a href="{{ '/compatibility.html' | relative_url }}"{% if page.title == 'Compatibility' %} aria-current="page"{% endif %}>Compatibility</a>
+        <a href="{{ '/LICENSE' | relative_url }}">License</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="content">
+    {% if page.title == 'Compatibility' %}
+    <h1>Compatibility</h1>
+    <div class="table-scroll" role="region" aria-label="Game compatibility table" tabindex="0">{{ content }}</div>
+    {% else %}{{ content }}{% endif %}
+  </main>
+  <footer><div class="wrap"><span>Gizmu · Gizmondo emulator</span><a href="{{ '/LICENSE' | relative_url }}">EUPL 1.2</a></div></footer>
+</body>
+</html>

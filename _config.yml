@@ -1,0 +1,23 @@
+title: Gizmu
+description: Gizmondo emulator — game compatibility
+lang: en
+url: https://mrpostiga.github.io
+baseurl: /gizmu
+markdown: kramdown
+kramdown:
+  input: GFM
+relative_links:
+  enabled: true
+  collections: false
+readme_index:
+  enabled: true
+  remove_originals: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: compatibility.md
+    values:
+      title: Compatibility
