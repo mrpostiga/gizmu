@@ -5,9 +5,14 @@ url: https://mrpostiga.github.io
 baseurl: /gizmu
 release:
   version: "1.0"
-  platform: Windows x64
   url: https://github.com/mrpostiga/gizmu/releases/tag/v1.0.0
-  download_url: https://github.com/mrpostiga/gizmu/releases/download/v1.0.0/gizmu-1.0-windows-x64.zip
+  downloads:
+    - platform: Windows x64
+      label: Windows
+      url: https://github.com/mrpostiga/gizmu/releases/download/v1.0.0/gizmu-1.0-windows-x64.zip
+    - platform: Linux x64
+      label: Linux
+      url: https://github.com/mrpostiga/gizmu/releases/download/v1.0.0/gizmu-1.0-linux-x64.tar.gz
 markdown: kramdown
 kramdown:
   input: GFM
